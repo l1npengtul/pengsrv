@@ -6,5 +6,7 @@
     ./podman.nix
     ./sshd.nix
     ./sysutils.nix
+    ./audit.nix
+    ./clamav.nix
   ];
 }

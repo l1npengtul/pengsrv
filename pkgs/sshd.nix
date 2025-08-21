@@ -9,9 +9,11 @@
       X11Forwarding = false;
       PermitRootLogin = "no";
     };
-  };
-
-  networking.firewall = {
-    allowedTCPPorts = [22];
+    extraConfig = ''
+        AllowTcpForwarding yes
+      AllowAgentForwarding no
+      AllowStreamLocalForwarding no
+      AuthenticationMethods publickey
+    '';
   };
 }

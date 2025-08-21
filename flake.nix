@@ -8,9 +8,6 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     agenix.url = "github:ryantm/agenix";
 
-    nix-index-database.url = "github:nix-community/nix-index-database";
-    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
     alejandra.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -18,7 +15,9 @@
 
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     disko.url = "github:nix-community/disko/latest";
-    disko.inputs.nixpkgs.follows = "nixpkgs-stable";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+
+    impermanence.url = "github:nix-community/impermanence";
   };
 
   outputs = {
@@ -27,9 +26,8 @@
     nixpkgs-unstable,
     nixos-hardware,
     disko,
+    impermanence,
     agenix,
-    nix-index,
-    database,
     alejandra,
     vhs-decode-nur-packages,
     nix-minecraft,
@@ -44,19 +42,24 @@
 
     pkgs = import nixpkgs commonArgs;
     pkgs-unstable = import nixpkgs commonArgs;
+    lib = nixpkgs.lib;
   in {
     inherit commonArgs;
 
     nixosConfigurations = {
       zo = lib.nixosSystem {
-        inherit system pkgs username;
+        inherit system pkgs;
         specialArgs = {
-          inherit inputs pkgs pkgs-unstable;
+          inherit inputs pkgs-unstable;
         };
 
         modules = [
           nix-minecraft.nixosModules.minecraft-servers
           disko.nixosModules.disko
+          impermanence.nixosModules.impermanence
+
+          ./configuration.nix
+          ./hosts/zo
         ];
       };
     };

@@ -17,6 +17,11 @@
     ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
+      helix
+      micro
+      git
+      curl
+      wget
     ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHmy492dN8mCQIP/f/ecxu9DIBHbhQF5Yte28CJZ1hgf l1npengtul@protonmail.com"
