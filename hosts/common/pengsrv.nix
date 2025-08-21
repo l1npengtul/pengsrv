@@ -28,6 +28,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBITwQ7bUgxNBYdQFzWjRQkg9NW9s646icQZ/ifVitD4 l1npengtul@protonmail.com"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILbe88oJjlFPbgN4pn4v5cdAWGEDiOiwQnEpTXPzSaYS l1npengtul@protonmail.com"
     ];
+    initialHashedPassword = "nuhuh";
   };
   programs.fish.enable = true;
 }
