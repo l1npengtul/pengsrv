@@ -60,6 +60,7 @@
 
           ./configuration.nix
           ./hosts/zo
+          ./services/madamoiselle
         ];
       };
     };
