@@ -18,6 +18,9 @@
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
     impermanence.url = "github:nix-community/impermanence";
+
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -31,6 +34,7 @@
     alejandra,
     vhs-decode-nur-packages,
     nix-minecraft,
+    sops-nix
     ...
   } @ inputs: let
     username = "pengserver";
@@ -57,6 +61,8 @@
           nix-minecraft.nixosModules.minecraft-servers
           disko.nixosModules.disko
           impermanence.nixosModules.impermanence
+          agenix.nixosModules.default
+          sops-nix.nixosModules.sops
 
           ./configuration.nix
           ./hosts/zo
