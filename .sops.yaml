@@ -1,0 +1,9 @@
+keys:
+  - &clubcyberia: age1r0093sns2akzrrg2fgxuz6wu8lqugege8cns7l2emtgf7ttjmcgssge4ta
+  - &oldhome: age18n9wjwlg499gnkd6v4v40z0wg36fc3y3zlclgmflns0fr6duv9wqkwdmah
+creation_rules:
+  - path_regex: secrets/[^/]+\.(yaml|yml|json|toml|env|ini|sops)$
+    key_groups:
+      - age:
+        - *clubcyberia
+        - *oldhome
